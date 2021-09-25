@@ -17,5 +17,8 @@ RSpec.describe BrailleWriter do
     expect(@braillewriter.translate('1')).to eq([['.0', '.0', '00'],['0.', '..', '..']])
     expect(@braillewriter.translate('0')).to eq([['.0', '.0', '00'],['.0', '00', '..']])
   end
-
+  
+  it 'can translate multiple letters' do
+    expect(@braillewriter.translate('aa')).to eq([['0.', '..', '..'],['0.', '..', '..']])
+  end
 end
