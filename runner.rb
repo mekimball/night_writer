@@ -1,4 +1,5 @@
 require './lib/dictionary'
+require './lib/braille_writer'
 
 first_arg, second_arg = ARGV
 first_lines = File.readlines(first_arg)
