@@ -1,11 +1,16 @@
 require './lib/dictionary'
 require './lib/braille_writer'
 
+braille = BrailleWriter.new
+include Dictionary
+# require 'pry'; binding.pry
 first_arg, second_arg = ARGV
 first_lines = File.readlines(first_arg)
+ test = braille.translate(first_lines.join)
 
-new_file = File.open(second_arg, 'w') do |_f|
-  IO.copy_stream(first_arg, second_arg)
+new_file = File.open(second_arg, 'w') do |f|
+  f.write test
+  # IO.copy_stream(test, second_arg)
 end
 
 second_lines = File.readlines(second_arg)
