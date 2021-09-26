@@ -3,6 +3,7 @@ require_relative 'dictionary'
 class BrailleWriter
   include Dictionary
 
+
   def translate(characters)
     characters = characters.split('')
    translate_array = []
@@ -16,5 +17,17 @@ class BrailleWriter
       end
     end
     translate_array
+  end
+
+  # def print_chars(chars)
+  #   characters = translate(chars)
+  #   # require 'pry'; binding.pry
+  #   characters
+  # end
+
+  def translate_back(chars)
+    chars.map do |char|
+      braille_keys[char]
+    end.join
   end
 end
