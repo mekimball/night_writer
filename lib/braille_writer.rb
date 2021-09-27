@@ -3,15 +3,16 @@ require_relative 'dictionary'
 class BrailleWriter
   include Dictionary
 
+
   def translate(characters)
     characters = characters.split('')
     translate_array = []
     characters.each do |character|
       if character.ord.between?(48, 57)
-        translate_array << number_keys['#']
-        translate_array << number_keys[character]
+        translate_array << numbers_to_braille['#']
+        translate_array << numbers_to_braille[character]
       else
-        translate_array << letter_keys[character.downcase]
+        translate_array << letters_to_braille[character.downcase]
       end
     end
     translate_array

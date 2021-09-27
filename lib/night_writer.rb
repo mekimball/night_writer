@@ -3,15 +3,22 @@ require_relative 'braille_writer'
 
 braille = BrailleWriter.new
 include Dictionary
-# require 'pry'; binding.pry
 first_arg, second_arg = ARGV
 first_lines = File.readlines(first_arg)
 test = braille.puts_braille(first_lines.join)
+length = test.transpose
+length.filter_map do |array|
+  if array != nil
+  length << array[40..-1]
+  end
+end
+
+
 
 new_file = File.open(second_arg, 'w') do |f|
-  # f.write test
-  test.transpose.each do |element|
-    f.write "#{element.join}\n"
+  # require 'pry'; binding.pry
+  length.compact.each do |element|
+      f.write "#{element[0..39].join}\n"
   end
 end
 
