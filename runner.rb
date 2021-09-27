@@ -6,11 +6,14 @@ include Dictionary
 # require 'pry'; binding.pry
 first_arg, second_arg = ARGV
 first_lines = File.readlines(first_arg)
- test = braille.translate(first_lines.join)
+ test = braille.puts_braille(first_lines.join)
+ 
 
 new_file = File.open(second_arg, 'w') do |f|
-  f.write test
-  # IO.copy_stream(test, second_arg)
+  # f.write test
+  test.transpose.each do |element|
+      f.write "#{element.join}\n"
+  end
 end
 
 second_lines = File.readlines(second_arg)
