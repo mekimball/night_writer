@@ -22,15 +22,8 @@ class BrailleWriter
     braille_array.each do |element|
       test = element.zip
       test.map do |element|
-          element
-        end
-      # require 'pry'; binding.pry
+        element
+      end
     end
-  end
-
-  def translate_back(chars)
-    chars.map do |char|
-      braille_keys[char]
-    end.join
   end
 end
