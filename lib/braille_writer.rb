@@ -11,15 +11,19 @@ class BrailleWriter
         translate_array << number_keys['#']
         translate_array << number_keys[character]
       else
-        translate_array << letter_keys[character]
+        translate_array << letter_keys[character.downcase]
       end
     end
     translate_array
   end
-  
-  def translate_back(chars)
-    chars.map do |char|
-      braille_keys[char]
-    end.join
+
+  def puts_braille(characters)
+    braille_array = translate(characters)
+    braille_array.each do |element|
+      test = element.zip
+      test.map do |element|
+        element
+      end
+    end
   end
 end
