@@ -13,6 +13,11 @@ RSpec.describe BrailleWriter do
     expect(@braillewriter.translate('a')).to eq([['0.', '..', '..']])
   end
 
+  it 'can translate uppercase letters' do
+    expect(@braillewriter.translate('A')).to eq([['..', '..', '.0'],
+                                                 ['0.', '..', '..']])
+  end
+
   it 'can translate single numbers' do
     expect(@braillewriter.translate('1')).to eq([['.0', '.0', '00'],
                                                  ['0.', '..', '..']])
@@ -30,5 +35,9 @@ RSpec.describe BrailleWriter do
   it 'can translate multiple letters' do
     expect(@braillewriter.translate('aa')).to eq([['0.', '..', '..'],
                                                   ['0.', '..', '..']])
+  end
+
+  it 'puts_braille' do
+    expect(@braillewriter.puts_braille('a')).to eq([['0.', '..', '..']])
   end
 end
