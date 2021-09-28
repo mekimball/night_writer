@@ -1,8 +1,9 @@
 require_relative 'dictionary'
+# require 'simplecov'
+# SimpleCov.start
 
 class BrailleWriter
   include Dictionary
-
 
   def translate(characters)
     characters = characters.split('')
