@@ -29,7 +29,7 @@ module BrailleDictionary
       ['  ', '  ', '  '] => ' ' }
   end
 
-  def numbers_to_braille
+  def braille_to_numbers
     { ['.0', '.0', '00'] => '#',
       ['0.', '..', '..'] => '1',
       ['0.', '0.', '..'] => '2',

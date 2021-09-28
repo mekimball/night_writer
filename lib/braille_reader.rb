@@ -8,7 +8,7 @@ class BrailleReader
   def translate_back(characters)
     characters.map do |character|
       if braille_to_letters[character].nil?
-        numbers_to_braille[character]
+        braille_to_numbers[character]
       else
         braille_to_letters[character]
       end
