@@ -1,4 +1,4 @@
-require_relative 'dictionary'
+require_relative 'english_dictionary'
 require 'simplecov'
 SimpleCov.start
 
