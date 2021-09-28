@@ -8,16 +8,12 @@ first_lines = File.readlines(first_arg)
 test = braille.puts_braille(first_lines.join)
 length = test.transpose
 length.filter_map do |array|
-  if array != nil
-  length << array[40..-1]
-  end
+  length << array[40..-1] unless array.nil?
 end
-
-
 
 new_file = File.open(second_arg, 'w') do |f|
   length.compact.each do |element|
-      f.write "#{element[0..39].join}\n"
+    f.write "#{element[0..39].join}\n"
   end
 end
 

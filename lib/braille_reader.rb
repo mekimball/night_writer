@@ -1,4 +1,6 @@
 require_relative 'braille_dictionary'
+require 'simplecov'
+SimpleCov.start
 
 class BrailleReader
   include BrailleDictionary

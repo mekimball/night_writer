@@ -1,7 +1,6 @@
 require_relative 'dictionary'
-require_relative 'night_reader'
-# require 'simplecov'
-# SimpleCov.start
+require 'simplecov'
+SimpleCov.start
 
 class BrailleWriter
   include Dictionary
@@ -13,8 +12,11 @@ class BrailleWriter
       if character.ord.between?(48, 57)
         translate_array << numbers_to_braille['#']
         translate_array << numbers_to_braille[character]
-      else
+      elsif character.upcase == character
+        translate_array << letters_to_braille['upcase']
         translate_array << letters_to_braille[character.downcase]
+      else
+        translate_array << letters_to_braille[character]
       end
     end
     translate_array
