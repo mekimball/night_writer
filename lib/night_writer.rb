@@ -1,4 +1,4 @@
-require_relative 'dictionary'
+require_relative 'english_dictionary'
 require_relative 'braille_writer'
 
 braille = BrailleWriter.new
